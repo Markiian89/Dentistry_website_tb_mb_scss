@@ -1,0 +1,36 @@
+@import '_variables';
+
+%tittle__header {
+  text-transform: uppercase;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+  letter-spacing: 4px;
+}
+
+%tittle__main {
+  font-size: 34px;
+  font-style: normal;
+  line-height: 130%;
+}
+
+@mixin sectionMargin {
+  margin-top: 90px;
+  
+  @media (max-width: 992px) {
+    margin-top: 30px; 
+  }
+  
+  @media (max-width: 768px) {
+    margin-top: 30px;
+  }
+}
+
+@mixin triangle($width, $color) {
+  width: 0;
+  height: 0;
+  border-left: $width / 2 solid transparent;
+  border-right: $width / 2 solid transparent;
+  border-top: $width / 2 solid $color;
+}

@@ -1,0 +1,695 @@
+@import '_breakpoint';
+@import '_variables';
+@import '_null';
+@import '_template';
+
+.triangle {
+    @include triangle(150px, $colorBlue);
+}
+
+.main {
+    display: block;
+    max-width: 1180px;
+    margin: 0 auto;
+    text-align: center;
+    @include sectionMargin;
+    &__title {
+        color:$colorWBlack;
+        font-weight: 400;
+        margin-left: 15px;
+        margin-right: 15px;
+        @extend %tittle__main;
+        .main__blue {
+            color: $colorBlue;
+            font-weight: 600;
+            @extend %tittle__main;
+        }
+    }
+    &__text {
+        color: $colorBlack;
+        text-align: center;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%;
+        margin-bottom: 50px;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    &__wrapper {
+        display: grid;
+        background-color: $colorBlue;
+        grid-template-columns:1fr 1fr 1fr;
+        grid-template-rows: repeat(2,  1fr);
+        max-width: 1020px;
+        justify-items: center;
+        align-items: center;
+        margin: 0 auto;
+        box-sizing:border-box;
+        position: relative;
+        width: 100%;
+        gap: 12px 40px;
+        border-radius: 12px;
+        padding: 15px;
+        margin-bottom: 87px;
+        @include devices ('lg') {
+            max-width: 600px;
+
+            grid-template-columns: auto auto;
+            gap: 12px 20px;
+            margin-bottom: 30px;
+        }
+        @include devices ('sm') {
+            grid-template-columns: auto;
+            max-width: 300px;
+        }
+        .box1, .box2, .box3, .box4, .box5, .box6 {  
+            display: flex;
+            text-align: left;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            height: 176px;
+            width: 300px;
+            flex-shrink: 0;
+            border-radius: 8px;
+            background: $colorWhite;
+            @include devices ('lg') {
+                height: auto;
+                padding-bottom: 20px;
+                padding-right: 15px;
+                align-self: stretch;
+                width: 90%;
+                max-width: 300px;
+            } 
+            .box__inner {
+                margin-left: 18px;
+                margin-top: 10px;
+            }
+            .box__number{
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                margin-bottom: 20px;
+            
+                color:$colorBlue;
+                text-align: center;
+                font-size: 40px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                @include devices ('lg') {
+                    font-size: 35px;
+                }
+            }
+            .number__text {
+                text-align: left;
+                margin-left: 10px;
+            
+                color:$colorBlue;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 700;
+                line-height: normal;
+                @include devices ('lg') {
+                    font-size: 13px;
+                }
+            }
+            .box__text {
+                color: $colorWBlack;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                @include devices ('lg') {
+                    font-size: 14px;
+                }
+            }
+        }
+        .box1, .box3, .box5 { 
+            grid-row: 1; 
+        }
+        .box2, .box4, .box6 { 
+            grid-row: 2; 
+        }
+
+        .box1, .box2 {
+            @include devices ('lg') {
+                grid-row: 1;
+            }
+        }
+      
+        .box3, .box4 {
+            @include devices ('lg') {
+                grid-row: 2;
+            }  
+        }
+        .box5, .box6 {
+            @include devices ('lg') {
+                grid-row: 3;
+            }
+        }
+        .box1 {
+            @include devices ('sm') {
+                grid-row: 1;
+            } 
+        }
+        .box2 {
+            @include devices ('sm') {
+                grid-row: 2;
+            } 
+        }
+        .box3 {
+            @include devices ('sm') {
+                grid-row: 3;
+            } 
+        }
+        .box4 {
+            @include devices ('sm') {
+                grid-row: 4;
+            } 
+        }
+        .box5 {
+            @include devices ('sm') {
+                grid-row: 5;
+            } 
+        }
+        .box6 {
+            @include devices ('sm') {
+                grid-row: 6;
+            } 
+        }
+    }
+    .main__wrapper br {
+        @include devices ('lg') {
+            display: none;
+        }
+    }
+    .wrapper {
+        max-width: 1180px;
+        margin: 0 auto;
+        @include sectionMargin;
+        .box__wrapper {
+            display: flex;
+            align-items: flex-start;
+            justify-content: center;
+            @include devices ('lg') {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            & .left {
+                text-align: right;
+                @include devices ('lg') {
+                    text-align: center;
+                }
+                & .item_1 {
+                    margin-right: 16px;
+
+                    transform: translatex(-150px) translatey(-150px);
+                    animation: left--item_1 1.5s forwards;
+                    animation-delay: 5s;
+                    opacity: 0;
+                }
+                @keyframes left--item_1 {
+                    0% {opacity: 0;}
+                    100% {opacity: 1;}
+                    0% {
+                        transform: translatex(-150px) translatey(-150px)
+                    }
+                    100% {
+                        transform: translatex(0px) translatey(0px);
+                    }
+                }
+                & .item_2 {
+                    margin-right: 64px;
+
+                    transform: translatex(-150px);
+                    animation: left--item_2 1.5s forwards;
+                    animation-delay: 5s;
+                    opacity: 0;
+                }
+                @keyframes left--item_2 {
+                    0% {opacity: 0;}
+                    100% {opacity: 1;}
+                    0% {
+                        transform: translatex(-150px)
+                    }
+                    100% {
+                        transform: translatex(0px);
+                    }
+                }
+                & .item_3 {
+                    transform: translatex(-150px) translatey(150px);
+                    animation: left--item_3 1.5s forwards;
+                    animation-delay: 5s;
+                    opacity: 0;
+                }
+                
+                @keyframes left--item_3 {
+                    0% {opacity: 0;}
+                    100% {opacity: 1;}
+                    0% {
+                        transform: translatex(-150px) translatey(150px)
+                    }
+                    100% {
+                        transform: translatex(0px) translatey(0px);
+                    }
+                }
+                .box__wrapper--item {
+                    margin-bottom: 31px;
+                    color: $colorWBlack;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    .box_tittle {
+                        color: $colorBlue;
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 135%;
+                    }
+                }
+            }
+            .left .item_1 {
+                @include devices ('lg') {
+                    margin-right: 0;
+                    padding: 0 15px;
+                    max-width: 320px;
+                    margin: 0 auto;
+                    margin-bottom: 31px;
+                }
+            }
+            .left .item_2 {
+                @include devices ('lg') {
+                    margin-right: 0;
+                    padding: 0 15px;
+                    max-width: 320px;
+                    margin: 0 auto;
+                    margin-bottom: 31px;
+                }
+            }
+            .left .item_3 {
+                @include devices ('lg') {
+                    padding: 0 15px;
+                    max-width: 320px;
+                    margin: 0 auto;
+                    margin-bottom: 31px;
+                }
+            }
+            .circle {
+                width: 302px;
+                height: 302px;
+                position: relative;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            
+                border-radius: 302px;
+                border: 1px solid $colorWBlack;
+                background: rgba(217, 217, 217, 0.00);
+                @include devices ('lg') {
+                    display: none;
+                }
+                .little__circle {
+                    display: flex;
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 100%;
+                    background: $colorBlue;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                
+                    color: $colorBWhite;
+                    font-family: 'Sofia Sans';
+                    font-size: 18px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 140%;
+                }
+                .circle_1 {
+                    transform: translatex(0px) translatey(0px);
+                    animation: circle_1 1.5s forwards;
+                    animation-delay: 5s;
+                }               
+                @keyframes circle_1 {
+                    0% {
+                        transform: translatex(0px) translatey(0px)
+                    }
+                    100% {
+                        transform: translatex(-102px) translatey(-117px);
+                    }
+                }              
+                .circle_2 {
+                    transform: translatex(0px) translatey(0px);
+                    animation: circle_2 1.5s forwards;
+                    animation-delay: 5s;
+                }               
+                @keyframes circle_2 {
+                    0% {
+                        transform: translatex(0px) translatey(0px)
+                    }
+                    100% {
+                        transform: translatex(102px) translatey(-117px);
+                    }
+                }               
+                .circle_3 {
+                    transform: translatex(0px) translatey(0px);
+                    animation: circle_3 1.5s forwards;
+                    animation-delay: 5s;
+                }               
+                @keyframes circle_3 {
+                    0% {
+                        transform: translatex(0px) translatey(0px)
+                    }
+                    100% {
+                        transform: translatex(-152px) translatey(0px);
+                    }
+                }                
+                .circle_4 {
+                    transform: translatex(0px) translatey(0px);
+                    animation: circle_4 1.5s forwards;
+                    animation-delay: 5s;
+                }                
+                @keyframes circle_4 {
+                    0% {
+                        transform: translatex(0px) translatey(0px)
+                    }
+                    100% {
+                        transform: translatex(152px) translatey(0px);
+                    }
+                }                
+                .circle_5 {
+                    transform: translatex(0px) translatey(0px);
+                    animation: circle_5 1.5s forwards;
+                    animation-delay: 5s;
+                }                
+                @keyframes circle_5 {
+                    0% {
+                        transform: translatex(0px) translatey(0px)
+                    }
+                    100% {
+                        transform: translatex(-102px) translatey(117px);
+                    }
+                }               
+                .circle_6 {
+                    transform: translatex(0px) translatey(0px);
+                    animation: circle_6 1.5s forwards;
+                    animation-delay: 5s;
+                }                
+                @keyframes circle_6 {
+                    0% {
+                        transform: translatex(0px) translatey(0px)
+                    }
+                    100% {
+                        transform: translatex(102px) translatey(117px);
+                    }
+                }
+            }
+            & .right {
+                @include devices ('lg') {
+                    text-align: center;
+                }
+                text-align: left;
+                & .item_1 {
+                    margin-left: 16px;
+
+                    transform: translatex(150px) translatey(-150px);
+                    animation: right--item_1 1.5s forwards;
+                    animation-delay: 5s;
+                    opacity: 0;
+                }                
+                @keyframes right--item_1 {
+                    0% {opacity: 0;}
+                    100% {opacity: 1;}
+                    0% {
+                        transform: translatex(150px) translatey(-150px)
+                    }
+                    100% {
+                        transform: translatex(0px) translatey(0px);
+                    }
+                }
+                & .item_2 {
+                    margin-left: 64px;
+
+                    transform: translatex(150px);
+                    animation: right--item_2 1.5s forwards;
+                    animation-delay: 5s;
+                    opacity: 0;
+                    .box5_text {
+                        min-height: 74px;
+                    }
+                }
+                @keyframes right--item_2 {
+                    0% {opacity: 0;}
+                    100% {opacity: 1;}
+                    0% {
+                        transform: translatex(150px)
+                    }
+                    100% {
+                        transform: translatex(0px);
+                    }
+                }
+                & .item_3 {
+                    transform: translatex(150px) translatey(150px);
+                    animation: right--item_3 1.5s forwards;
+                    animation-delay: 5s;
+                    opacity: 0;
+                }
+                @keyframes right--item_3 {
+                    0% {opacity: 0;}
+                    100% {opacity: 1;}
+                    0% {
+                        transform: translatex(150px) translatey(150px)
+                    }
+                    100% {
+                        transform: translatex(0px) translatey(0px);
+                    }
+                }
+                .box__wrapper--item {
+                    margin-bottom: 31px;
+                    color: $colorWBlack;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: normal;
+                    .box_tittle {
+                        color: $colorBlue;
+                        font-size: 20px;
+                        font-style: normal;
+                        font-weight: 600;
+                        line-height: 135%;
+                    }
+                }
+            }
+            .right .item_1 {
+                @include devices ('lg') {
+                    margin-left: 0;
+                    padding: 0 15px;
+                    max-width: 320px;
+                    margin: 0 auto;
+                    margin-bottom: 31px;
+                }
+            }
+            .right .item_2 {
+                @include devices ('lg') {
+                    margin-left: 0;
+                    padding: 0 15px;
+                    max-width: 320px;
+                    margin: 0 auto;
+                    margin-bottom: 31px;
+                }
+            }
+            .right .item_3 {
+                @include devices ('lg') {
+                    padding: 0 15px;
+                    max-width: 320px;
+                    margin: 0 auto;
+                    margin-bottom: 31px;
+                }
+            }
+        }
+        .box__wrapper br {
+            @include devices ('lg') {
+                display: none;
+            }
+        }
+        .attention {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 69px;
+            margin-bottom: 88px;
+            .img__attention {
+                margin-left: 15px;
+            }
+            .attention__text {
+                color: $colorBlue;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 140%;
+                margin-right: 35px;
+            }
+        } 
+    }
+    .appointment {
+        width: 845px;
+        height: 265px;
+        flex-shrink: 0;
+        margin: 0 auto;
+    
+        border-radius: 10px;
+        border: 1px solid $colorBWhite;
+        background: $colorWhite;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        margin-bottom: 90px;
+        @include devices ('lg') {
+            max-width: 458px;
+            width: 95%;
+            height: 450px;
+            margin-bottom: 30px;
+        }
+        &__box {
+            width: 821px;
+            height: 247px;
+            flex-shrink: 0;
+        
+            border-radius: 10px;
+            border: 1px solid $colorBWhite;
+            background: $colorWhite;
+            backdrop-filter: blur(2px);
+            margin: 10px 9px;
+            @include devices ('lg') {
+                max-width: 430px;
+                width: 95%;
+                height: 425px;
+                
+            }
+            .appointment__tittle {
+                width: 763px;
+                margin: 29px 33px 7px 25px;
+            
+                color:$colorWBlack;
+                text-align: center;
+                font-size: 32px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 130%;
+                text-transform: uppercase;
+                margin: 25px auto;
+                @include devices ('lg') {
+                    max-width: 400px;
+                    width: 100%;
+                }
+            }
+            .appointment__text {
+                width: 801px;
+                margin-left: 14px;
+                margin-right: 6px;
+                margin-bottom: 45px;
+                color: $colorWBlack;
+                text-align: center;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 140%;
+                @include devices ('lg') {
+                    max-width: 250px;
+                    width: 100%;
+                    margin: 0 auto;
+                    margin-bottom: 15px;
+                }
+            }
+            .appointment__button {
+                display: flex;
+                margin: 0 auto;              
+                @include devices ('lg') {
+                    display: block;
+                    margin: 0 auto;
+                }
+            }            
+            .button__phone {
+                margin-left: 69px;
+                @include devices ('lg') {
+                    margin-top: 15px;
+                    margin-bottom: 15px;
+                }
+            }
+            .button__name {
+                margin-left: 18px;
+            }             
+            .button__name, .button__phone  {
+                display: flex;
+                align-items: center;
+                color: rgba(27, 29, 31, 0.51);
+                border: 1px solid transparent;
+                text-align: center;
+                font-size: 19px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 140%;
+                
+                width: 233px;
+                height: 57px;
+                flex-shrink: 0;
+            
+                border-radius: 8px;
+                background: rgba(217, 217, 217, 0.71);
+                .user, .phone {
+                    border-right: 1px solid $colorBlack;
+                    padding-left: 0;
+                    padding-right: 13px;
+                }
+                &:focus, &:focus {
+                    border: 2px solid $colorBlue;
+                }
+                .box__text--appointment {
+                    display: flex;
+                    margin-left: 23px;
+                }
+            }
+            .button__sign {
+                display: flex;
+                border: 1px solid transparent;
+                width: 180px;
+                height: 57px;
+                padding: 16px 35px;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                flex-shrink: 0;
+            
+                border-radius: 8px;
+                background: $colorBlue;
+            
+                color: $colorWhite;
+                text-align: center;
+                font-size: 19px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 140%;
+                margin-left: 67px;
+            }
+            .button__name, .button__phone, .button__sign {
+                @include devices ('lg') {
+                    margin: 10px auto;
+                } 
+            }
+        }
+    }
+    .images {
+        display: flex;
+        max-width: 980px;
+        margin: 0 auto;
+        justify-content: space-between;
+        margin-bottom: 90px;
+        @include sectionMargin;
+        @include devices ('lg') {
+            display: block;
+            margin-bottom: 30px;
+        }
+    }
+}

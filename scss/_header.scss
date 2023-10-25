@@ -1,0 +1,481 @@
+@import '_variables';
+@import '_null';
+@import '_template';
+@import '_breakpoint';
+
+
+.first-screen {
+    padding-top: 60px;
+    min-height: 663px;
+    background-image:url('../img/header/Background.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    @include devices ('sm'){
+        box-sizing: border-box;
+    }
+    .header {
+        display: flex;
+        max-width: 1180px;
+        width: 100%;
+        justify-content: space-between;
+        margin: 0 auto;
+        align-items:flex-start;
+        margin-bottom: 43px;
+        &__logo {
+            display: flex;
+            align-items:center;      
+        }
+        .zub {
+            @include devices ('lg'){
+                width: 50px;
+                margin-left: 15px;
+            }
+            @include devices ('sm'){
+                width: 30px;
+                height: 33px;
+                margin-left: 15px;
+            }
+        }
+        .text__logo {
+            display: block;
+            color: $colorBlue;
+            text-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+            font-family: 'Sofia Sans';
+            font-size: 38px;
+            font-style: normal;
+            font-weight: 400;
+            @include devices ('lg') {
+                font-size: 23px;
+            }
+            @include devices ('sm'){
+                font-size: 15px;
+                margin-bottom: 3px;
+            }
+        }
+        .text__name {
+            display: block;
+            color: $colorBlue;
+            font-family: 'Sofia Sans';
+            font-size: 26.852px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 140%;
+            margin-top: -7px;
+            @include devices ('lg') {
+                font-size: 21px;
+            }
+            @include devices ('sm'){
+                font-size: 13px;
+            }
+        }  
+        .display_flex {
+            display: flex;
+            align-items: center;
+        }
+        .menu {
+            padding: 0;
+            &__nav {
+                width: min-content;
+                display: grid;
+                grid-template-columns:repeat(3, 1fr);
+                column-gap: 30px;
+                padding: 0;
+                .menu__item {
+                    list-style-type: none;
+                    text-align: center;
+                    display: inline;
+                    font-size: 20px;
+                    margin: 0 40px;
+                    .menu__link {
+                        text-decoration: none;
+                        color: $colorWBlack;
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: normal;
+                    }
+                    .menu__link:hover {
+                        color: $colorBlue;
+                    }
+                }
+            }
+            .menu__nav, .lang__header {
+                @include devices ('lg') {
+                    display: none;
+                }
+            }
+        }
+        .tel {
+            display: flex;
+            align-items:center;
+            margin-left: 41px;
+            margin-right: 23px;
+            @include devices ('md') {
+                flex-direction: column;
+                align-items: flex-end;
+            }
+            @include devices ('sm') {
+                margin-left: 0;
+                margin-right: 15px;
+            }
+            &__link {
+                display: flex;
+                position: relative;
+                text-decoration: none;
+                color: $colorWBlack;
+                text-align: center;
+                font-size: 16px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: normal;
+                align-items: center;
+                @include devices ('lg') {
+                    font-size: 18px;
+                }
+                @include devices ('sm'){
+                    font-size: 11px;
+                }
+                &::before {
+                    background-position: center center;
+                    background-repeat:no-repeat;
+                    content: ' ';
+                    display: block;
+                    height: 24px;
+                    width: 24px;
+                    background-image: url('../img/header/Phone.png');
+                    margin-right: 6px;
+                }
+            } 
+        }
+        .burger {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow:none;
+            background-color: transparent;
+            border: 0;
+            align-items: center;
+            position: relative;
+            width: 16px;
+            height: 26px;
+            cursor: pointer;
+            z-index: 1;
+            @include devices ('sm') {
+                display: flex;
+            }
+            &:focus .burger_line--2 {
+                transform: rotate(45deg);
+                background-color: $colorBlue;
+                margin: 0;
+            }
+            &:focus .burger_line--1 {
+                opacity: 0;
+            }
+            &:focus .burger_line--3 {
+                transform: rotate(-45deg);
+                background-color: $colorBlue;
+                margin: 0;
+                margin-left: 1px;
+                margin-top: -1px;
+            }
+            & > span,
+            & > span::before,
+            & > span::after {
+                display: block;
+                width: 16px;
+                height: 1px;
+                background-color: $colorWBlack;
+                transition-duration: .25s;
+                transition: 0.3s all ease-in-out;
+                margin: 2px 0;
+            }
+        }
+        
+        .lang__header {
+            display: flex;
+            padding: 0;
+            color: $colorBlack;
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            @include devices ('lg') {
+                display: none;
+            }
+            & li {
+                list-style: none;
+                margin: 0;
+                display: block;
+                padding-right: 13px;
+            }
+            & li:last-child::before {
+                content:' ';
+                height: 13px;
+                background-color: $colorBlack;
+                padding-left: 1px;
+                margin-right: 13px;
+            }
+            .ua__head {
+                color: $colorBlack;
+                font-size: 20px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: normal;
+            }
+        }       
+    }
+
+    .description {
+        position: relative;
+        display: block;
+        max-width: 1180px;
+        margin: 0 auto;
+        z-index: 1;
+        @include devices ('lg') {
+            text-align: center;
+        }
+        &__page {
+            display: inline-block;
+            @include devices ('lg') {
+                text-align: center;
+                padding: 0 15px;
+            }
+            .anim__descr {
+                transform: translateY(150%);
+                opacity: 0;
+                animation: anim_descr 1.5s forwards;
+                h1 {
+                    color:$colorWBlack;
+                    margin-bottom: 30px;
+                    @extend %tittle__header;
+                    .header__title {
+                        @extend %tittle__header;
+                        color: $colorBlue;
+                    }
+                }
+                h1 {
+                    @include devices ('lg') {
+                        font-size: 30px;
+                    }
+                    @include devices ('sm'){
+                        font-size: 25px;
+                        margin-bottom: 5px;
+                    }
+                    .header__title {
+                        @include devices ('lg') {
+                            font-size: 30px;
+                        }
+                        @include devices ('sm'){
+                            font-size: 25px;
+                            margin-bottom: 5px;
+                        }
+                    }
+
+                }
+
+            }
+            @keyframes anim_descr {
+                0% {opacity: 0;}
+                100% {opacity: 1;}
+                0% {transform: translateY(150%);}
+                100% {transform: translateY(0);}
+            }
+            .anim__services {
+                animation: anim_services 1.5s forwards;
+                animation-delay: 0.2s;
+                transform: translateY(150%);
+                opacity: 0;
+                .services {
+                    color: $colorWBlack;
+                    font-size: 16px;
+                    font-style: normal;
+                    font-weight: 400;
+                    line-height: 140%;
+                    @include devices ('lg') {
+                        font-size: 16px;
+                        text-align: center;
+                    }
+                }
+            }
+            @keyframes anim_services {
+                0% {opacity: 0;}
+                100% {opacity: 1;}
+                0% {transform: translateY(150%);}
+                100% {transform: translateY(0);}
+            }
+            .button__header {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 120px;
+                flex-shrink: 0;
+                margin-top: 48px;
+                @include devices ('lg') {
+                    justify-content: space-between;
+                    gap: 0;
+                }
+                @include devices ('sm'){
+                    margin-top: 10px;
+                }
+                .button__call {
+                    border: 1px solid transparent;
+                    border-radius: 8px;
+                    background: linear-gradient(140deg, $colorBlue 0%, $colorDBlue 100%);
+                    box-shadow: 0px 2px 10px 0px $colorBlue;
+                    width: 180px;
+                    height: 60px;
+                    padding: 16px 35px;
+                    color: $colorWhite;
+                    text-align: center;
+                    font-size: 19px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 140%;
+                    text-transform: uppercase;
+                }
+                .button__services {
+                    border-radius: 8px;
+                    border: 1px solid $colorBWhite;
+                    background: $colorWhite;
+                    box-shadow: 0px 2px 10px 0px $colorBWhite;
+                    width: 180px;
+                    height: 60px;
+                    padding: 16px 35px;
+                    color: $colorBlue;
+                    text-align: center;
+                    font-size: 19px;
+                    font-style: normal;
+                    font-weight: 600;
+                    line-height: 140%;
+                    text-transform: uppercase;
+                }
+                .button__call, .button__services {
+                    @include devices ('lg') {
+                        width: 120px;
+                        height: 55px;
+                        padding: 9px 20px;
+                        font-size: 17px;
+                    }
+                }
+            }
+            .services br {
+                @include devices ('sm') {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+.lady__content {
+    max-width: 1180px;
+    width: 100%;
+    position: relative;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    .lady {
+        position: absolute;
+        bottom: 100%;
+        right: 0px;
+        display: block;
+        max-width: 100%;
+        height: 463px;
+        flex-shrink: 0;
+        z-index: 0;
+        @include devices ('lg') {
+            position: relative;
+            width: 208px;
+            height: 173px;
+            margin: 0 auto;
+            margin-top: -181px;
+        }
+        @include devices ('sm') {
+            bottom: 0px;
+        }
+    }
+}
+.card {
+    max-width: 980px;
+    display: grid;
+    grid-template-columns:repeat(3, 1fr);
+    margin: 0 auto;
+    position:relative;
+    width: 100%;
+    gap: 74px;
+    align-items: center;
+    text-align: center;
+    margin-top: -52px;
+    margin-bottom: 90px;
+
+    animation: card_services 1.5s forwards;
+    animation-delay: 0.5s;
+    transform: translateX(-150%);
+    opacity: 0;
+    @include devices ('lg') {
+        grid-template-columns: repeat(1, 1fr);
+        max-width: 180px;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 10px;
+        margin-top: 8px;
+    }
+    
+    .card1, .card2, .card3 {
+        display: inline-flex;
+        text-align: left;
+        box-sizing: border-box;
+        align-items:center;
+        align-self: center;
+        justify-content:flex-start;
+        border-radius: 8px;
+        border: 1px solid $colorBWhite;
+        background: $colorWhite;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        height: 120px;
+        flex-shrink: 0;
+    }
+    .card__number {
+        display: block;
+        width: 133px;
+        text-align: center;
+        margin-right: 3px;
+        color: $colorBlue;
+        text-align: center;
+        font-size: 65px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+    .card1 {
+        margin-top: 0;
+        align-items: flex-start;
+        padding-top: 35px;
+        & .card__text {
+            display: block;
+            max-width: 146px;
+        }
+        & .card__number {
+            line-height: 0.9;
+            margin-right: 7px;
+            width: 93px;
+        }
+    }
+    .card3 .card__number {
+        margin-right: 7px;
+        width: 96px;
+    }
+    .card__text {
+        width: 146px;
+        color:$colorWBlack;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+    }
+}
+@keyframes card_services {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+    0% {transform: translateX(-150%);}
+    100% {transform: translateX(0);}
+}
